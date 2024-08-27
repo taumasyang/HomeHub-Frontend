@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { CalendarIcon, ChatIcon } from '@chakra-ui/icons';
 import Dashboard from '../Component/Dashboard';
 import My_Calendar from '../Component/My_Calendar';
-
+import Chat from '../Component/Chat'; 
 
 function MainPage(){
 
@@ -32,7 +32,7 @@ function MainPage(){
         switch (activeContent) {
           case "Chat":
             //hardcode chat content, 未来获取chat component
-            return <Text>Chat Content</Text>;
+            return <Chat />;
           case "Calendar":
             //calendar component
             return <My_Calendar/>;
