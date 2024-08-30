@@ -6,7 +6,7 @@ import moment from 'moment';  // 引入moment库用于日期处理
 //引入静态数据用于测试
 import scheduleServices from '../static_data_for_test/ScheduleData';
 
-function Dashboard() {
+function Dashboard({unreadMessages}) {
 
 //获取最近的服务日期
   const nextService = scheduleServices
@@ -25,6 +25,7 @@ function Dashboard() {
       <Grid templateColumns="repeat(2, 1fr)" gap={6}>
         <GridItem w="100%" h="150px" bg="gray.100" p={4} borderRadius="md">
           <Text fontSize="lg">Message</Text>
+          <Text color="blue.500" mt="2">{unreadMessages > 0 ? `${unreadMessages} unread messages` : 'No unread messages'}</Text>
         </GridItem>
         <GridItem w="100%" h="150px" bg="gray.100" p={4} borderRadius="md">
           <Text fontSize="lg">Payment</Text>

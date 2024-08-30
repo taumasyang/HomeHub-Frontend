@@ -26,13 +26,19 @@ function MainPage(){
 
     //定义一个状态变量activeMenuItem，用于记录当前选中的菜单项
     const [activeMenuItem, setActiveMenuItem] = useState('default');
+    
+    const [unreadMessages, setUnreadMessages] = useState(0);
+
+    const addUnreadMessage = () => {
+      setUnreadMessages(prev => prev + 1);
+    };
 
     //根据activeContent渲染不同的内容
     const renderContent = () => {
         switch (activeContent) {
           case "Chat":
             //hardcode chat content, 未来获取chat component
-            return <Chat />;
+            return <Chat addUnreadMessage={addUnreadMessage} />;
           case "Calendar":
             //calendar component
             return <My_Calendar/>;
@@ -44,10 +50,10 @@ function MainPage(){
             return <Text >Payment Content</Text>;
           case "Dashboard":
             //dashboard component
-            return <Dashboard/>;
+            return <Dashboard addUnreadMessage={addUnreadMessage} />;
             //默认状态下显示dashboard component
           default:
-            return <Dashboard/>;
+            return <Dashboard addUnreadMessage={addUnreadMessage} />;
         }
       };
     const toggleSidebar = () => {
